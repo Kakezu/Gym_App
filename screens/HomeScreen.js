@@ -1,8 +1,13 @@
 import React from 'react'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import colors from '../assets/colors/colors'
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { getAuth } from 'firebase/auth';
+import homeImage from "../assets/images/home_image.png"
+import instructedClassesPhoto from "../assets/images/instructedclasses_photo.png"
+import InstructedClasses from './InstructedClasses';
+
+
 
 export default function HomeScreen({ navigation }) {
 
@@ -21,9 +26,27 @@ export default function HomeScreen({ navigation }) {
           </Pressable>
           <Text style={styles.logoText}>FitZone</Text>
         </View>
-        <View style={styles.HomeImage}>
 
-        </View>
+          <View style={styles.HomeImage}>
+            <Image source={homeImage} style={{width: "100%", height: 260}}/>
+          </View>
+        <ScrollView>
+            <Text style={styles.instructedClassesText}>
+              New instructed classes
+            </Text>
+
+          <View style={styles.instructedClassesWrapper}>
+            <Image source={instructedClassesPhoto} style={{width: "100%", height: 140}}/>
+            <Text style={styles.instructedClassesInsideText}>Check out our diverse selection of instructed classes!</Text>
+            <Pressable onPress={() => navigation.navigate("InstructedClasses")} style={styles.button}>
+              <Text style={{color: "white"}}>BOOK A CLASS</Text>
+            </Pressable>
+          </View>
+          
+          <Pressable onPress={() => navigation.navigate("AboutUs")}style={[styles.button, styles.buttonDark]}>
+            <Text style={{color: "white"}}>CONTACT INFO</Text>
+          </Pressable>
+        </ScrollView>
     </View>
   )
 }
@@ -33,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   topBarWrapper: {
-    flex: 0.13,
+    flex: 8,
     flexDirection: "row",
     backgroundColor: colors.darkBlue,
     justifyContent: 'center',
@@ -42,14 +65,48 @@ const styles = StyleSheet.create({
   logoText: {
     color: "white",
     fontSize: 40,
-    marginHorizontal: 120,
-    marginTop: 20
+    marginRight: 120,
+    marginLeft: 89,
+    marginTop: 25
 
   },
   logoutIcon: {
-    marginTop: 20
+    marginTop: 25
   },
   HomeImage: {
-
+    alignItems: 'center'
   },
+  instructedClassesWrapper: {
+    alignSelf: 'center',
+    borderColor: colors.lightGray,
+    borderWidth: 2,
+    borderRadius: 5,
+    width: "94%"
+  },
+  instructedClassesText: {
+    color: colors.lightBlue,
+    fontSize: 24,
+    marginTop: 50,
+    marginLeft: 15,
+    
+  },
+  button: {
+    backgroundColor: colors.lightBlue,
+    width: "70%",
+    paddingVertical: 15,
+    borderRadius: 10,
+    alignSelf: 'center',
+    alignItems: "center",
+    marginTop: 20
+  },
+  buttonDark: {
+    backgroundColor: colors.darkBlue,
+    marginTop: 80
+  },
+  instructedClassesInsideText: {
+    fontSize: 16,
+    marginHorizontal: 20,
+    marginTop: 20,
+    color: "#92949C"
+  }
 })
