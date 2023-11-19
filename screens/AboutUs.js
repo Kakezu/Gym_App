@@ -1,9 +1,10 @@
-import { Image, ImageBackground, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Image, ImageBackground, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import colors from '../assets/colors/colors'
 import aboutUsImage from "../assets/images/about_us_image.png"
 import instructedClassesImage from "../assets/images/aboutus_instructedclasses.png"
 import { Ionicons } from '@expo/vector-icons'; 
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import MapView, { Marker } from "react-native-maps"
 
 export default function AboutUs({ navigation }) {
   return (
@@ -17,7 +18,7 @@ export default function AboutUs({ navigation }) {
             onPress={() => navigation.navigate("HomeScreen")}/>
             <Text style={styles.logoText}>FitZone</Text>
         </View>
-        <ScrollView style={{marginBottom: 100}}>
+        <ScrollView contentContainerStyle={{paddingBottom: 500}}>
             <ImageBackground source={aboutUsImage} resizeMode='cover'
                 style={styles.aboutusImageWrapper}>
                 <Text style={styles.aboutUsTitle}>About us</Text>
@@ -68,6 +69,19 @@ export default function AboutUs({ navigation }) {
                     <Text style={styles.contactInfoText}>info.fitzone@fitzone.fi</Text>
                 </View>
             </View>
+            <MapView 
+                initialRegion={{
+                    //60.168820993251714, 24.936339542559033
+                    latitude: 60.16882,
+                    longitude: 24.93633,
+                    latitudeDelta: 0.001,
+                    longitudeDelta: 0.001,
+                }}
+                style={styles.map}>
+                <Marker
+                    coordinate={{latitude: 60.16882, longitude: 24.93633}}/>
+            </MapView>
+            
 
 
         </ScrollView>
@@ -160,4 +174,11 @@ const styles = StyleSheet.create({
         fontSize: 15,
         
     },
+    map: {
+        marginTop: 50,
+        borderRadius: 10,
+        width: "90%",
+        height: "40%",
+        alignSelf: 'center'
+    }
 })
