@@ -27,10 +27,10 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.logoText}>FitZone</Text>
         </View>
 
+        <ScrollView>
           <View style={styles.HomeImage}>
             <Image source={homeImage} style={{width: "100%", height: 260}}/>
           </View>
-        <ScrollView>
             <Text style={styles.instructedClassesText}>
               New instructed classes
             </Text>

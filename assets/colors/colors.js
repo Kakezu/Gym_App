@@ -1,6 +1,7 @@
 const colors = {
     darkBlue: "#1C104E",
     lightBlue: "#389FFF",
+    paleBlue: "#3DC2FF",
     orange: "#F35D38",
     black: "#0C0D0E",
     white: "#FBFCFE",
