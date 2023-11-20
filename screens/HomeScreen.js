@@ -65,9 +65,9 @@ const styles = StyleSheet.create({
   logoText: {
     color: "white",
     fontSize: 40,
-    marginRight: 120,
+    marginRight: 122,
     marginLeft: 89,
-    marginTop: 25
+    marginTop: 26
 
   },
   logoutIcon: {
@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
     borderColor: colors.lightGray,
     borderWidth: 2,
     borderRadius: 5,
-    width: "94%"
+    width: "94%",
+    height: "38%"
   },
   instructedClassesText: {
     color: colors.lightBlue,
