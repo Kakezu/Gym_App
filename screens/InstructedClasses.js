@@ -4,6 +4,7 @@ import colors from '../assets/colors/colors'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import * as Progress from 'react-native-progress';
 import CalendarPicker from 'react-native-calendar-picker';
+import moment from "moment"
 
 export default function InstructedClasses() {
   const [exerciseSlots, setExerciseSlots] = useState({
@@ -19,18 +20,10 @@ export default function InstructedClasses() {
     groupExerciseA: false,
   });
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
-  const [selectedStartDate, setSelectedStartDate] = useState(null);
+  const [selectedStartDate, setSelectedStartDate] = useState(moment());
   const startDate = selectedStartDate ? selectedStartDate.format('YYYY-MM-DD').toString() : '';
 
-  const handleDateChange = (date) => {
-    setSelectedStartDate(date);
-    setIsCalendarVisible(false);
-  };
-  
-
   useEffect(() => {
-    // This code will run whenever `exerciseSlots` changes
-    console.log(exerciseSlots);
   }, [exerciseSlots]);
 
 
@@ -46,6 +39,12 @@ export default function InstructedClasses() {
       }));
     }
   };
+  const handleDateChange = (date) => {
+    setSelectedStartDate(date);
+    setIsCalendarVisible(false);
+  };
+  
+
 
   return (
     <>

@@ -165,7 +165,8 @@ const styles = StyleSheet.create({
         width: "90%"
     },
     contactInfoTextWrapper: {
-        flexDirection: 'column'
+        flexDirection: 'column',
+        marginLeft: 10,
     },
     contactInfoTopic: {
         fontSize: 20,
